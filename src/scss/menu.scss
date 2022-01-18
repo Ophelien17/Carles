@@ -4,10 +4,13 @@ header {
 
   .titleApp {
     text-transform: uppercase;
+    font-size: 45px;
+    margin: 5px;
   }
 
   .logo {
-
+    margin: 15px;
+    height: 30px;
   }
 }
 
@@ -39,7 +42,7 @@ nav {
     }
   }
 
-  section {
+  .optionsMenu {
     background-color: #FFF;
     border-radius: 15px;
     padding: 15px;

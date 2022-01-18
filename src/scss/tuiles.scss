@@ -1,0 +1,46 @@
+.tuile {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 10px;
+  width: 50vh;
+
+  .containerImg {
+    display: flex;
+    justify-content: center;
+
+    .imgArticle {
+
+    }
+  }
+
+
+  .titleArticle {
+    margin-bottom: 0;
+    font-size: 1.5em;
+  }
+
+  .descArticle {
+    margin-top: 0;
+    color: #707070;
+    line-height: 1;
+  }
+
+  .opts {
+    display: flex;
+    justify-content: space-between;
+
+    .price {
+      font-weight: bold;
+      margin: 0px;
+    }
+
+    .qte {
+      text-align: center;
+      min-width: 24px;
+      border: .5px solid black;
+      border-radius: 50%;
+    }
+  }
+
+}

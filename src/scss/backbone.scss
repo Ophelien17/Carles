@@ -1,4 +1,27 @@
 body {
-  background-color: #EBEAEF;
-  font-family: 'Dongle', sans-serif;
+    margin: 0;
+    background-color: #EBEAEF;
+    font-family: 'Dongle', sans-serif;
 }
+
+main {
+
+}
+
+.tuiles {
+    display: flex;
+    flex-wrap: wrap;
+
+    .column-item {
+        flex: 1 1 80px;
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+}
+
+
+
+

@@ -20,7 +20,7 @@ function Menu(props) {
         <>
             <header>
                 <h1 className={'titleApp'}>Carles</h1>
-                <img src={'/icons/logo.png'} alt={'logo'} height={100} className={'logo'}/>
+                <img src={'/icons/logo.png'} alt={'logo'} className={'logo'}/>
             </header>
             <nav>
                 <div className={'search'}>
