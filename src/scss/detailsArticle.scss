@@ -1,76 +1,88 @@
 .containerImg {
+  margin: 20px;
   display: flex;
   justify-content: center;
 }
 
-.categories {
-  display: flex;
-  justify-content: center;
-  margin: 0 20px;
+.under {
+  position: absolute;
+  bottom: 0;
 
-  .section {
-    border-radius: 15px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #FFF;
-
-    .logoSection {
-
-    }
-
-    h5 {
-      margin: 0;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-  }
-}
-
-.details {
-  background-color: #FFF;
-  border-radius: 20px 20px 0 0;
-  padding: 15px;
-
-  .desc {
-    margin-top: 0;
-    color: #707070;
-    line-height: 1;
-  }
-
-  .container1 {
+  .categories {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 0 20px;
 
-    .articleLink {
-      text-decoration: none;
-      color: #000;
-    }
+    .section {
+      border-radius: 15px;
+      padding: 10px;
+      margin: 10px;
+      background-color: #FFF;
 
-    .price {
-      font-weight: bold;
-      margin: 0px;
-    }
-  }
+      .logoSection {
 
-  .container2 {
-    display: flex;
-    justify-content: space-between;
+      }
 
-    .quantity {
-      display: flex;
-
-      div {
-        margin: 0 5px;
+      h5 {
+        margin: 0;
         text-align: center;
-        min-width: 24px;
-        border: .5px solid black;
-        border-radius: 50%;
+        text-transform: uppercase;
+      }
+
+    }
+  }
+
+  .details {
+
+    background-color: #FFF;
+    border-radius: 20px 20px 0 0;
+    padding: 15px;
+
+    .titleArticle {
+      margin-bottom: 0;
+      font-size: 1.5em;
+    }
+
+    .desc {
+      margin-top: 0;
+      color: #707070;
+      line-height: 1;
+    }
+
+    .container1 {
+      display: flex;
+      justify-content: space-between;
+
+      .articleLink {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .price {
+        font-weight: bold;
+        margin: 0px;
       }
     }
 
-    .trash {
-      height: 20px;
+    .container2 {
+      display: flex;
+      justify-content: space-between;
+
+      .quantity {
+        display: flex;
+
+        div {
+          margin: 0 5px;
+          text-align: center;
+          min-width: 24px;
+          border: .5px solid black;
+          border-radius: 50%;
+        }
+      }
+
+      .trash {
+        height: 20px;
+      }
     }
   }
 }

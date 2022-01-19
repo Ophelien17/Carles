@@ -18,10 +18,12 @@ function Menu(props) {
 
     return (
         <>
-            <header>
+            <header onClick={() => window.location.href = '/'}>
                 <h1 className={'titleApp'}>Carles</h1>
                 <img src={'/icons/logo.png'} alt={'logo'} className={'logo'}/>
             </header>
+
+
             <nav>
                 <div className={'search'}>
                     <input type={'text'} placeholder={'Rechercher'} className={'inputSearch'}/>
@@ -39,7 +41,6 @@ function Menu(props) {
                     </ul>
                 </section>
             </nav>
-
         </>
     );
 }

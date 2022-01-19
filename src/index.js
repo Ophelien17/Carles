@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Backbone from './main/Backbone';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route} from "react-router-dom";
+
+import Backbone from './main/Backbone';
+import DetailsArticle from "./pages/DetailsArticle";
+import Menu from "./main/Menu";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Backbone/>
+        <BrowserRouter>
+            <Menu/>
+            <Route exact path="/">
+                <Backbone/>
+            </Route>
+            <Route path="/DetailsArticle">
+                <DetailsArticle/>
+            </Route>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );
