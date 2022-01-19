@@ -5,6 +5,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 import Backbone from './main/Backbone';
 import DetailsArticle from "./pages/DetailsArticle";
+import AddArticle from "./pages/AddArticle";
 import Menu from "./main/Menu";
 
 ReactDOM.render(
@@ -16,6 +17,9 @@ ReactDOM.render(
             </Route>
             <Route path="/DetailsArticle">
                 <DetailsArticle/>
+            </Route>
+            <Route path="/AddArticle">
+                <AddArticle/>
             </Route>
         </BrowserRouter>
     </React.StrictMode>,

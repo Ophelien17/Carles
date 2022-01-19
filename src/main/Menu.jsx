@@ -37,7 +37,7 @@ function Menu(props) {
                         <li>SDB</li>
                         <li>Cuisine</li>
                         <li>Salle à manger</li>
-                        <li>Salon</li>
+                        <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>
                 </section>
             </nav>

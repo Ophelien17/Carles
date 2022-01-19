@@ -4,3 +4,5 @@ const colors = {
     main: '#EBEAEF',
     back: '#FFF',
 };
+
+export default colors;
