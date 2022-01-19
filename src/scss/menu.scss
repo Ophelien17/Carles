@@ -1,6 +1,48 @@
+$extra-small: 0px;
+$small: 600px;
+$medium: 900px;
+$large: 1250px;
+$extra-large: 1536px;
+
+@media (max-width: $medium) {
+  header {
+    justify-content: flex-end;
+  }
+
+  nav {
+    .inputSearch {
+      background-color: #FFF;
+    }
+
+    .optionsMenuDeploy {
+      display: none;
+    }
+  }
+
+}
+
+@media (min-width: $medium) {
+  .menu {
+    header {
+      justify-content: center;
+    }
+
+    nav {
+      .inputSearch {
+        background-color: #EBEAEF;
+      }
+
+      .settingsBtn {
+        display: none;
+      }
+    }
+  }
+
+}
+
+
 header {
   display: flex;
-  justify-content: flex-end;
 
   .titleApp {
     text-transform: uppercase;
@@ -20,7 +62,6 @@ nav {
     margin-bottom: 20px;
 
     .inputSearch {
-      background-color: #FFF;
       border-radius: 10px;
       border: none;
       padding: 5px;

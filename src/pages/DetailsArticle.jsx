@@ -25,7 +25,8 @@ function Tuile(props) {
                 </div>
 
                 <div className="details">
-                    <h3 className={'titleArticle'}>Nom article</h3>
+                    <h3 className={'titleArticle'} onClick={window.open('http://www.example.com', '_blank')}>Nom
+                        article</h3>
                     <p className={'desc'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus hic illum
                         iste
                         soluta, tempora totam voluptas. A blanditiis, deserunt, eaque maiores nobis nostrum officia,

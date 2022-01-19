@@ -4,7 +4,12 @@ import colors from "../dataStyle";
 
 const Form = styled.form`
 display: flex;
-  flex-wrap: wrap;`;
+  flex-wrap: wrap;
+  @media (min-width: 900px){
+  margin-top: 5%
+  width: 80%;
+  }
+  `;
 
 const Input = styled.input`
 background-color: ${colors.back};

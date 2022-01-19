@@ -16,9 +16,11 @@ function Backbone(props) {
                         className={'tuile'}/></div>
                     <div className={"column-item"} onClick={() => window.location.href = '/DetailsArticle'}><Tuile
                         className={'tuile'}/></div>
+                    <div className={"column-item"} onClick={() => window.location.href = '/DetailsArticle'}><Tuile
+                        className={'tuile'}/></div>
+                    <div className={"column-item"} onClick={() => window.location.href = '/DetailsArticle'}><Tuile
+                        className={'tuile'}/></div>
 
-                    <Tuile className={'column-item tuile'}/>
-                    <Tuile className={'column-item tuile'}/>
                 </div>
 
 

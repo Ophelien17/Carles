@@ -17,7 +17,7 @@ function Menu(props) {
     };
 
     return (
-        <>
+        <div className={'menu'}>
             <header onClick={() => window.location.href = '/'}>
                 <h1 className={'titleApp'}>Carles</h1>
                 <img src={'/icons/logo.png'} alt={'logo'} className={'logo'}/>
@@ -40,8 +40,19 @@ function Menu(props) {
                         <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>
                 </section>
+
+                <section className={'optionsMenu optionsMenuDeploy'}>
+                    <ul>
+                        <li onClick={scrollMenu('chambre')}>Chambre</li>
+                        <li>SDB</li>
+                        <li>Cuisine</li>
+                        <li>Salle à manger</li>
+                        <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
+                    </ul>
+                </section>
+
             </nav>
-        </>
+        </div>
     );
 }
 
