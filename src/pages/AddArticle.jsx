@@ -4,32 +4,31 @@ import '../scss/addArticle.scss';
 
 function AddArticle(props) {
     const [section, setSection] = useState(null);
+    const [isAdd, setIsAdd] = useState(false);
 
     const handleSubmit = (evt) => {
+        evt.preventDefault();
         const varForm = evt.target.elements;
 
-        if (varForm.sections.value !== null)
-            setSection(varForm.sections.value.split(', '));
+        /* if (varForm.sections.value !== null)
+             setSection(varForm.sections.value.split(', '));
 
-        console.log(varForm);
+         console.log(varForm.section);*/
 
-        axios.post('http://localhost:8080/addArticle', {
+        axios.post('http://192.168.250.4:8080/addArticle', {
             articleName: varForm.articleName.value,
             description: varForm.description.value,
             price: varForm.price.value,
+            quantity: varForm.quantity.value,
             link: varForm.link.value,
             cat: evt.target.elements.cat.value,
-            section: section
+            section: varForm.sections.value.split(', ')
         });
+        setIsAdd(true);
+        setTimeout(() => {
+            window.location.reload()
+        }, 1500);
 
-
-        console.log(varForm.articleName.value);
-        console.log(varForm.description.value);
-        console.log(varForm.price.value);
-        console.log(varForm.link.value);
-
-        evt.preventDefault();
-        console.log(evt.target.elements.cat.value);
     };
 
     useEffect(() => {
@@ -39,16 +38,18 @@ function AddArticle(props) {
     return (
         <>
             <form onSubmit={handleSubmit} className={'formAdd'}>
-                <input type={'text'} placeholder={'Nom de l\'article'} id={'articleName'} className={'inputAdd'}/>
+                <input type={'text'} placeholder={'Nom de l\'article'} id={'articleName'} className={'inputAdd'}
+                       required/>
                 <textarea rows="2" cols="33" name={'description'} placeholder={'Description'} id={'description'}
                           className={'inputAdd'}/>
                 <input type={'number'} placeholder={'0.00 €'} id={'price'} className={'inputAdd'}/>
-                <input type={'text'} placeholder={'www.example.com'} id={'link'} className={'inputAdd'}/>
+                <input type={'number'} placeholder={'3'} id={'quantity'} className={'inputAdd'}/>
+                <input type={'text'} placeholder={'www.example.com'} id={'link'} className={'inputAdd'} required/>
                 <input type={'file'} className={'inputAdd'}/>
 
                 <section className={'cat'}>
                     <h4 className={'catTitle'}>Catégories</h4>
-                    <input type="radio" id="sofas_armchairs" name="cat" value="sofas_armchairs"/>
+                    <input type="radio" id="sofas_armchairs" name="cat" value="sofas_armchairs" checked/>
                     <label htmlFor="sofas_armchairs">Canapées & Fauteuils</label><br/>
                     <input type="radio" id="furniture" name="cat" value="furniture"/>
                     <label htmlFor="furniture">Meubles</label><br/>
@@ -70,6 +71,8 @@ function AddArticle(props) {
 
                 <input type={'text'} placeholder={'section1, section2, ...'} id={'sections'} className={'inputAdd'}/>
                 <button type={'submit'} className={'btnNewArticle'}>Nouvel article</button>
+                <p style={{display: isAdd ? 'block' : 'none'}}>Artcile ajouté ️✅</p>
+
             </form>
         </>
     );

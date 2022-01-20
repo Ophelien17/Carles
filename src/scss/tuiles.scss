@@ -22,7 +22,10 @@
   .descArticle {
     margin-top: 0;
     color: #707070;
-    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
   }
 
   .opts {

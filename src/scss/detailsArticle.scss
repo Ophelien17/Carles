@@ -67,16 +67,19 @@ $extra-large: 1536px;
   margin: 20px;
 }
 
-.under {
+
   .categories {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 0 20px;
 
     .section {
+      min-width: 70px;
       border-radius: 15px;
       padding: 10px;
       background-color: #FFF;
+      text-align: center;
 
       .logoSection {
 
@@ -84,13 +87,13 @@ $extra-large: 1536px;
 
       h5 {
         margin: 0;
-        text-align: center;
         text-transform: uppercase;
       }
 
     }
   }
 
+.under {
   .details {
 
     border-radius: 20px 20px 0 0;
