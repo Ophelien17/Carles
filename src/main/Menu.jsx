@@ -33,9 +33,14 @@ function Menu(props) {
 
                 <section className={'optionsMenu'} style={{display: displayOpt}}>
                     <ul>
-                        <li onClick={scrollMenu('chambre')}>Chambre</li>
-                        <li>SDB</li>
-                        <li>Cuisine</li>
+                        <li onClick={scrollMenu('chambre')}>Canapées & Fauteuils</li>
+                        <li>Meubles</li>
+                        <li>Déco</li>
+                        <li>Litterie</li>
+                        <li>Luminaires</li>
+                        <li>Linge de maison & Tapis</li>
+                        <li>Jardin</li>
+                        <li>Art de la table</li>
                         <li>Salle à manger</li>
                         <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>
@@ -43,9 +48,14 @@ function Menu(props) {
 
                 <section className={'optionsMenu optionsMenuDeploy'}>
                     <ul>
-                        <li onClick={scrollMenu('chambre')}>Chambre</li>
-                        <li>SDB</li>
-                        <li>Cuisine</li>
+                        <li onClick={scrollMenu('chambre')}>Canapées & Fauteuils</li>
+                        <li>Meubles</li>
+                        <li>Déco</li>
+                        <li>Litterie</li>
+                        <li>Luminaires</li>
+                        <li>Linge de maison & Tapis</li>
+                        <li>Jardin</li>
+                        <li>Art de la table</li>
                         <li>Salle à manger</li>
                         <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>

@@ -12,7 +12,7 @@ import Menu from "./main/Menu";
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <body className={'all'}>
+            <div className={'all'}>
             <nav className="menu">
                 <Menu/>
             </nav>
@@ -27,7 +27,7 @@ ReactDOM.render(
                     <AddArticle/>
                 </Route>
             </main>
-            </body>
+            </div>
 
 
         </BrowserRouter>
