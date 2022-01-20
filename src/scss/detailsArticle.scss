@@ -141,9 +141,15 @@ $extra-large: 1536px;
         }
       }
 
-      .trash {
-        height: 20px;
+      .btnTrash {
+        border: none;
+        background-color: #FFF;
+
+        .trash {
+          height: 20px;
+        }
       }
+
     }
   }
 }

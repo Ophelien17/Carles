@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation} from "react-router";
 import axios from "axios";
+import network from '../networkParam';
 import '../scss/detailsArticle.scss'
 
 
@@ -9,10 +10,9 @@ function Tuile(props) {
 
     const search = useLocation().search;
     const idArticle = new URLSearchParams(search).get('id');
-    console.log(idArticle);
 
     useEffect(() => {
-        axios.get('http://192.168.250.4:8080/article', {params: {id: idArticle}})
+        axios.get(network.url + 'article', {params: {id: idArticle}})
             .then((res) => {
                 setArticle(res.data);
             }).catch((err) => {
@@ -21,7 +21,8 @@ function Tuile(props) {
     }, []);
 
     const deleteArticle = () => {
-        axios.delete('http://localhost:8080/deleteArticle', {data: {id: idArticle}})
+        axios.delete(network.url + 'deleteArticle', {data: {id: idArticle}});
+        window.location.href = "/";
     };
 
     return (
@@ -39,7 +40,7 @@ function Tuile(props) {
                                 {
                                     detail.section !== null ?
                                         detail.section.map((section) => (
-                                            <div className="section">
+                                            <div className="section" key={section}>
                                                 <img
                                                     src={"/icons/section/" + section.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ".png"}
                                                     alt="logoSection"/>
@@ -61,8 +62,11 @@ function Tuile(props) {
                                     <div className={'quantity'}>
                                         - <div>{detail.quantity}</div> +
                                     </div>
-                                    <img src={'/icons/trash.svg'} alt={'bin'} className={'trash'}
-                                         onClick={deleteArticle()}/>
+
+                                    <button onClick={deleteArticle} className={'btnTrash'}><img src={'/icons/trash.svg'}
+                                                                                                alt={'bin'}
+                                                                                                className={'trash'}/>
+                                    </button>
                                 </div>
                             </div>
                         </div>

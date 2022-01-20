@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import network from '../networkParam';
 import axios from "axios";
 import '../scss/addArticle.scss';
 
@@ -15,7 +16,7 @@ function AddArticle(props) {
 
          console.log(varForm.section);*/
 
-        axios.post('http://192.168.250.4:8080/addArticle', {
+        axios.post(network.url + 'addArticle', {
             articleName: varForm.articleName.value,
             description: varForm.description.value,
             price: varForm.price.value,

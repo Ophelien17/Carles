@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
+import network from '../networkParam';
+import axios from "axios";
 
 import '../scss/backbone.scss';
 import '../scss/detailsArticle.scss'
 import Tuile from "../pages/Tuile";
-import axios from "axios";
 
 function Backbone() {
     const [articles, setArticles] = useState(null);
     const [une] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/articles')
+        axios.get(network.url + 'articles')
             .then((res) => {
                 setArticles(res.data);
             }).catch((err) => {
