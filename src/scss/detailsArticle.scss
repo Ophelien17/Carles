@@ -4,6 +4,9 @@ $medium: 900px;
 $large: 1250px;
 $extra-large: 1536px;
 
+$cartonColor: #f5deb3;
+$defaultColor: #FFF;
+
 @media (max-width: $medium) {
   .containerImg {
     display: flex;
@@ -20,7 +23,6 @@ $extra-large: 1536px;
     }
 
     .details {
-      background-color: #FFF;
 
       .container1 {
         justify-content: flex-end;
@@ -78,7 +80,6 @@ $extra-large: 1536px;
       min-width: 70px;
       border-radius: 15px;
       padding: 10px;
-      background-color: #FFF;
       text-align: center;
 
       .logoSection {
@@ -143,7 +144,6 @@ $extra-large: 1536px;
 
       .btnTrash {
         border: none;
-        background-color: #FFF;
 
         .trash {
           height: 20px;
@@ -152,4 +152,12 @@ $extra-large: 1536px;
 
     }
   }
+}
+
+.carton {
+  background-color: $cartonColor;
+}
+
+.noCarton {
+  background-color: $defaultColor;
 }

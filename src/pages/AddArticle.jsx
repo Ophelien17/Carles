@@ -11,10 +11,6 @@ function AddArticle(props) {
         evt.preventDefault();
         const varForm = evt.target.elements;
 
-        /* if (varForm.sections.value !== null)
-             setSection(varForm.sections.value.split(', '));
-
-         console.log(varForm.section);*/
 
         axios.post(network.url + 'addArticle', {
             articleName: varForm.articleName.value,
@@ -23,7 +19,8 @@ function AddArticle(props) {
             quantity: varForm.quantity.value,
             link: varForm.link.value,
             cat: evt.target.elements.cat.value,
-            section: varForm.sections.value.split(', ')
+            section: varForm.sections.value.split(', '),
+            carton: varForm.carton.checked
         });
         setIsAdd(true);
         setTimeout(() => {
@@ -71,6 +68,12 @@ function AddArticle(props) {
                 </section>
 
                 <input type={'text'} placeholder={'section1, section2, ...'} id={'sections'} className={'inputAdd'}/>
+                <section className="carton">
+                    <input type={'checkbox'} id={'carton'} name={'carton'} className={'inputCarton'}/>
+                    <label htmlFor="carton" className={'labelCarton'}>Carton</label>
+                </section>
+
+
                 <button type={'submit'} className={'btnNewArticle'}>Nouvel article</button>
                 <p style={{display: isAdd ? 'block' : 'none'}}>Artcile ajouté ️✅</p>
 

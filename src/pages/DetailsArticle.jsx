@@ -40,7 +40,9 @@ function Tuile(props) {
                                 {
                                     detail.section !== null ?
                                         detail.section.map((section) => (
-                                            <div className="section" key={section}>
+                                            <div
+                                                className={detail.carton == true ? "section carton" : "section noCarton"}
+                                                key={section}>
                                                 <img
                                                     src={"/icons/section/" + section.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ".png"}
                                                     alt="logoSection"/>
@@ -50,7 +52,7 @@ function Tuile(props) {
                                 }
                             </div>
 
-                            <div className="details">
+                            <div className={detail.carton == true ? "details carton" : "details noCarton"}>
                                 <h3 className={'titleArticle'}
                                     onClick={window.open('http://www.example.com', '_blank')}>{detail.articleName}</h3>
                                 <p className={'desc'}>{detail.description}</p>
@@ -63,9 +65,11 @@ function Tuile(props) {
                                         - <div>{detail.quantity}</div> +
                                     </div>
 
-                                    <button onClick={deleteArticle} className={'btnTrash'}><img src={'/icons/trash.svg'}
-                                                                                                alt={'bin'}
-                                                                                                className={'trash'}/>
+                                    <button onClick={deleteArticle}
+                                            className={detail.carton == true ? 'btnTrash carton' : 'btnTrash noCarton'}>
+                                        <img src={'/icons/trash.svg'}
+                                             alt={'bin'}
+                                             className={'trash'}/>
                                     </button>
                                 </div>
                             </div>
