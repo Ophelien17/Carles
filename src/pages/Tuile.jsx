@@ -7,7 +7,7 @@ function Tuile(props) {
     return (
 
         <section className={props.className}>
-            <div className="containerImg"><img src={''} alt={'articles'} className={'imgArticle'}/></div>
+            <div className="containerImgT"><img src={''} alt={'articles'} className={'imgArticle'}/></div>
             <h3 className={'titleArticle'}>{article.articleName}</h3>
             <p className={'descArticle'}>{article.description} </p>
             <div className={'opts'}>

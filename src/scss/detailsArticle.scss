@@ -11,10 +11,10 @@ $defaultColor: #FFF;
   .containerImg {
     display: flex;
     justify-content: center;
+
+    min-height: 150px;
   }
   .under {
-    position: absolute;
-    bottom: 0;
 
     .categories {
       .section {
