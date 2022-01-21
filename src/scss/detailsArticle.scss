@@ -103,6 +103,11 @@ $defaultColor: #FFF;
     .titleArticle {
       margin-bottom: 0;
       font-size: 1.5em;
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
     }
 
     .desc {
@@ -139,6 +144,12 @@ $defaultColor: #FFF;
           min-width: 24px;
           border: .5px solid black;
           border-radius: 50%;
+        }
+      }
+
+      .isCarton {
+        label {
+          color: #707070;
         }
       }
 

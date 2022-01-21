@@ -25,6 +25,12 @@ function Tuile(props) {
         window.location.href = "/";
     };
 
+    const handleChange = (evt) => {
+        console.log(evt.target.checked);
+        axios.put(network.url + 'addCarton', {data: {id: idArticle, carton: evt.target.checked}});
+        window.location.reload();
+    };
+
     return (
         <section className={'detailsArticle'}>
             {article !== null ?
@@ -53,8 +59,8 @@ function Tuile(props) {
                             </div>
 
                             <div className={detail.carton == true ? "details carton" : "details noCarton"}>
-                                <h3 className={'titleArticle'}
-                                    onClick={window.open('http://www.example.com', '_blank')}>{detail.articleName}</h3>
+                                <h3 className={'titleArticle'}><a href={detail.link} target={'_blank'}
+                                                                  className={'linkTitle'}> {detail.articleName}</a></h3>
                                 <p className={'desc'}>{detail.description}</p>
                                 <div className="container1">
                                     <a className={'articleLink'} href={detail.link}>Lien vers l'article</a>
@@ -64,6 +70,13 @@ function Tuile(props) {
                                     <div className={'quantity'}>
                                         - <div>{detail.quantity}</div> +
                                     </div>
+
+                                    <div className="isCarton">
+                                        <input type={'checkbox'} id={'carton'} name={'carton'} onChange={handleChange}
+                                               checked={detail.carton}/>
+                                        <label htmlFor="carton">Ajouter au carton</label>
+                                    </div>
+
 
                                     <button onClick={deleteArticle}
                                             className={detail.carton == true ? 'btnTrash carton' : 'btnTrash noCarton'}>
@@ -77,7 +90,6 @@ function Tuile(props) {
                     </div>
                 ))
                 : <p>nul</p>}
-
 
 
         </section>
