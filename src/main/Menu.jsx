@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import '../scss/menu.scss';
+import {useLocation} from "react-router";
 
 
 function Menu(props) {
     const [displayOpt, setDisplayOpt] = useState('none');
+
+    const search = useLocation().search;
+    const carton = new URLSearchParams(search).get('id');
 
     const openMenu = () => {
         if (displayOpt === 'none')
@@ -14,6 +18,10 @@ function Menu(props) {
 
     const scrollMenu = (menu) => {
 
+    };
+
+    const handleChange = (evt) => {
+        props.setIsCartonMenu(evt.target.checked);
     };
 
     return (
@@ -42,6 +50,10 @@ function Menu(props) {
                         <li>Jardin</li>
                         <li>Art de la table</li>
                         <li>Salle à manger</li>
+                        <li>
+                            <input type={'checkbox'} id={'carton'} name={'carton'} onChange={handleChange}/>
+                            <label htmlFor="carton">Carton</label>
+                        </li>
                         <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>
                 </section>
@@ -57,6 +69,10 @@ function Menu(props) {
                         <li>Jardin</li>
                         <li>Art de la table</li>
                         <li>Salle à manger</li>
+                        <li>
+                            <input type={'checkbox'} id={'carton'} name={'carton'} onChange={handleChange}/>
+                            <label htmlFor="carton">Carton</label>
+                        </li>
                         <li onClick={() => window.location.href = '/AddArticle'}>ajouter article</li>
                     </ul>
                 </section>

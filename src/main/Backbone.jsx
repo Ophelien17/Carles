@@ -1,44 +1,42 @@
 import React, {useEffect, useState} from 'react';
-import network from '../networkParam';
-import axios from "axios";
+import {BrowserRouter} from "react-router-dom";
+import {Route} from "react-router";
 
-import '../scss/backbone.scss';
-import '../scss/detailsArticle.scss'
-import Tuile from "../pages/Tuile";
+import '../scss/main.scss';
+import Menu from "./Menu";
+import Content from "./Content";
+import DetailsArticle from "../pages/DetailsArticle";
+import AddArticle from "../pages/AddArticle";
 
 function Backbone() {
-    const [articles, setArticles] = useState(null);
-    const [une] = useState(true);
+    const [isCartonMenu, setIsCartonMenu] = useState(false);
 
     useEffect(() => {
-        axios.get(network.url + 'articles')
-            .then((res) => {
-                setArticles(res.data);
-            }).catch((err) => {
-            console.log("ERR : ", err);
-        })
+        console.log(isCartonMenu)
+    }, [isCartonMenu]);
 
-    }, []);
 
     return (
-        <>
-            <main>
-                <div className={'tuiles'}>
-                    {articles !== null ?
-                        articles.map((article) => (
-                            <div key={article._id} className={"column-item"}
-                                 onClick={() => window.location.href = '/DetailsArticle?id=' + article._id}><Tuile
-                                className={'tuile'} article={article}/></div>
-                        ))
+        <BrowserRouter>
+            <div className={'all'}>
+                <nav className="menu">
+                    <Menu isCartonMenu={isCartonMenu} setIsCartonMenu={setIsCartonMenu}/>
+                </nav>
+                <main className="main">
+                    <Route exact path="/">
+                        <Content isCartonMenu={isCartonMenu}/>
+                    </Route>
+                    <Route path="/DetailsArticle">
+                        <DetailsArticle/>
+                    </Route>
+                    <Route path="/AddArticle">
+                        <AddArticle/>
+                    </Route>
+                </main>
+            </div>
 
-                        : <p>nul</p>}
 
-                </div>
-
-
-            </main>
-
-        </>
+        </BrowserRouter>
     );
 }
 

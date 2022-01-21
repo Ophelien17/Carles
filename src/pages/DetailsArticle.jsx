@@ -26,7 +26,6 @@ function Tuile(props) {
     };
 
     const handleChange = (evt) => {
-        console.log(evt.target.checked);
         axios.put(network.url + 'addCarton', {data: {id: idArticle, carton: evt.target.checked}});
         window.location.reload();
     };
