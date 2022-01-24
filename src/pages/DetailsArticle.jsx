@@ -46,7 +46,7 @@ function Tuile(props) {
                                     detail.section !== null ?
                                         detail.section.map((section) => (
                                             <div
-                                                className={detail.carton == true ? "section carton" : "section noCarton"}
+                                                className={detail.carton === true ? "section carton" : "section noCarton"}
                                                 key={section}>
                                                 <img
                                                     src={"/icons/section/" + section.normalize("NFD").replace(/[\u0300-\u036f]/g, "") + ".png"}
@@ -57,8 +57,9 @@ function Tuile(props) {
                                 }
                             </div>
 
-                            <div className={detail.carton == true ? "details carton" : "details noCarton"}>
-                                <h3 className={'titleArticle'}><a href={detail.link} target={'_blank'}
+                            <div className={detail.carton === true ? "details carton" : "details noCarton"}>
+                                <h3 className={'titleArticle'}><a href={'https://' + detail.link} target={'_blank'}
+                                                                  rel={'noreferrer'}
                                                                   className={'linkTitle'}> {detail.articleName}</a></h3>
                                 <p className={'desc'}>{detail.description}</p>
                                 <div className="container1">
@@ -78,7 +79,7 @@ function Tuile(props) {
 
 
                                     <button onClick={deleteArticle}
-                                            className={detail.carton == true ? 'btnTrash carton' : 'btnTrash noCarton'}>
+                                            className={detail.carton === true ? 'btnTrash carton' : 'btnTrash noCarton'}>
                                         <img src={'/icons/trash.svg'}
                                              alt={'bin'}
                                              className={'trash'}/>

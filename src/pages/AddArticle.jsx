@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import network from '../networkParam';
 import axios from "axios";
 import '../scss/addArticle.scss';
 
 function AddArticle(props) {
-    const [section, setSection] = useState(null);
     const [isAdd, setIsAdd] = useState(false);
 
     const handleSubmit = (evt) => {
@@ -38,9 +37,6 @@ function AddArticle(props) {
 
     };
 
-    useEffect(() => {
-        console.log(section)
-    }, [section]);
 
     return (
         <>
@@ -66,15 +62,15 @@ function AddArticle(props) {
                     <input type="radio" id="bedding" name="cat" value="bedding"/>
                     <label htmlFor="bedding">Literie</label><br/>
                     <input type="radio" id="lighting" name="cat" value="lighting"/>
-                    <label htmlFor="lighting">Luminaires</label>
+                    <label htmlFor="lighting">Luminaires</label><br/>
                     <input type="radio" id="linens_Rugs" name="cat" value="linens_Rugs"/>
-                    <label htmlFor="linens_Rugs">Linge de maison & Tapis</label>
+                    <label htmlFor="linens_Rugs">Linge de maison & Tapis</label><br/>
                     <input type="radio" id="garden" name="cat" value="garden"/>
-                    <label htmlFor="garden">Jardin</label>
+                    <label htmlFor="garden">Jardin</label><br/>
                     <input type="radio" id="table_art" name="cat" value="table_art"/>
-                    <label htmlFor="table_art">Art de la table</label>
+                    <label htmlFor="table_art">Art de la table</label><br/>
                     <input type="radio" id="dining_room" name="cat" value="dining_room"/>
-                    <label htmlFor="dining_room">Salle à manger</label>
+                    <label htmlFor="dining_room">Salle à manger</label><br/>
                 </section>
 
                 <input type={'text'} placeholder={'section1, section2, ...'} id={'sections'} className={'inputAdd'}/>
