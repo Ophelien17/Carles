@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import '../scss/menu.scss';
-import {useLocation} from "react-router";
 
 
 function Menu(props) {
     const [displayOpt, setDisplayOpt] = useState('none');
-
-    const search = useLocation().search;
-    const carton = new URLSearchParams(search).get('id');
 
     const openMenu = () => {
         if (displayOpt === 'none')

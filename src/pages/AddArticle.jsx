@@ -11,6 +11,14 @@ function AddArticle(props) {
         evt.preventDefault();
         const varForm = evt.target.elements;
 
+        let formData = new FormData();
+        formData.append("image", varForm.imgArticle.files[0]);
+
+        axios.post(network.url + 'stats', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
 
         axios.post(network.url + 'addArticle', {
             articleName: varForm.articleName.value,
@@ -20,12 +28,13 @@ function AddArticle(props) {
             link: varForm.link.value,
             cat: evt.target.elements.cat.value,
             section: varForm.sections.value.split(', '),
-            carton: varForm.carton.checked
+            carton: varForm.carton.checked,
+            imgLink: varForm.imgArticle.files[0].name
         });
         setIsAdd(true);
         setTimeout(() => {
             window.location.reload()
-        }, 1500);
+        }, 1000);
 
     };
 
@@ -43,7 +52,8 @@ function AddArticle(props) {
                 <input type={'number'} placeholder={'0.00 €'} id={'price'} className={'inputAdd'}/>
                 <input type={'number'} placeholder={'3'} id={'quantity'} className={'inputAdd'}/>
                 <input type={'text'} placeholder={'www.example.com'} id={'link'} className={'inputAdd'} required/>
-                <input type={'file'} className={'inputAdd'}/>
+                <input type={'file'} className={'inputAdd'} accept=".jpg, .jpeg, .png" id="imgArticle"
+                       name="imgArticle"/>
 
                 <section className={'cat'}>
                     <h4 className={'catTitle'}>Catégories</h4>

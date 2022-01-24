@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter} from "react-router-dom";
 import {Route} from "react-router";
 
@@ -10,10 +10,6 @@ import AddArticle from "../pages/AddArticle";
 
 function Backbone() {
     const [isCartonMenu, setIsCartonMenu] = useState(false);
-
-    useEffect(() => {
-        console.log(isCartonMenu)
-    }, [isCartonMenu]);
 
 
     return (

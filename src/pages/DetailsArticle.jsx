@@ -36,7 +36,7 @@ function Tuile(props) {
                 article.map((detail) => (
                     <div>
                         <div className={'containerImg'}>
-                            <img src={''} alt={'imgArticle'} className={''}/>
+                            <img src={'/images/' + detail.imgLink} alt={'imgArticle'} className={''}/>
                         </div>
 
                         <div className="under">

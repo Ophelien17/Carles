@@ -9,18 +9,14 @@ import Tuile from "../pages/Tuile";
 function Content(props) {
     const isCarton = props.isCartonMenu;
     const [articles, setArticles] = useState(null);
-    const [une] = useState(true);
 
     useEffect(() => {
-        console.log(isCarton);
         if (isCarton) {
-            console.log('test');
             axios.get(network.url + 'articleInCarton')
                 .then((res) => {
                     setArticles(res.data);
                 }).catch((err) => {
                 console.log("ERR : ", err);
-                console.log('articles' + setArticles)
             })
         } else {
             axios.get(network.url + 'articles')
