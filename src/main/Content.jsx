@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import network from '../networkParam';
 import axios from "axios";
 
@@ -9,7 +9,6 @@ import Tuile from "../pages/Tuile";
 function Content(props) {
     const isCarton = props.isCartonMenu;
     const catSelect = props.catSelect;
-    const [articles, setArticles] = useState(null);
 
     useEffect(() => {
 
@@ -19,7 +18,7 @@ function Content(props) {
                 console.log("je suis ds carton vrai cat select faux");
                 axios.get(network.url + 'articleInCarton')
                     .then((res) => {
-                        setArticles(res.data);
+                        props.setArticles(res.data);
                     }).catch((err) => {
                     console.log("ERR : ", err);
                 })
@@ -27,7 +26,7 @@ function Content(props) {
                 console.log("je suis ds carton vrai cat select vrai");
                 axios.get(network.url + 'selectCatInCarton', {params: {catSelect: catSelect}})
                     .then((res) => {
-                        setArticles(res.data);
+                        props.setArticles(res.data);
                     }).catch((err) => {
                     console.log("ERR : ", err);
                 })
@@ -35,7 +34,7 @@ function Content(props) {
                 console.log("je suis ds carton faux cat select vrai");
                 axios.get(network.url + 'selectCat', {params: {catSelect: catSelect}})
                     .then((res) => {
-                        setArticles(res.data);
+                        props.setArticles(res.data);
                     }).catch((err) => {
                     console.log("ERR : ", err);
                 })
@@ -43,7 +42,7 @@ function Content(props) {
         } else {
             axios.get(network.url + 'articles')
                 .then((res) => {
-                    setArticles(res.data);
+                    props.setArticles(res.data);
                 }).catch((err) => {
                 console.log("ERR : ", err);
             })
@@ -56,8 +55,8 @@ function Content(props) {
         <>
             <main>
                 <div className={'tuiles'}>
-                    {articles !== null ?
-                        articles.map((article) => (
+                    {props.articles !== null ?
+                        props.articles.map((article) => (
                             <div key={article._id} className={"column-item"}
                                  onClick={() => window.location.href = '/DetailsArticle?id=' + article._id}><Tuile
                                 className={'tuile'} article={article}/></div>

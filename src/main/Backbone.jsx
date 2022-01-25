@@ -11,6 +11,7 @@ import AddArticle from "../pages/AddArticle";
 function Backbone() {
     const [isCartonMenu, setIsCartonMenu] = useState(null);
     const [catSelect, setCatSelect] = useState(null);
+    const [articles, setArticles] = useState(null);
 
 
     return (
@@ -18,11 +19,12 @@ function Backbone() {
             <div className={'all'}>
                 <nav className="menu">
                     <Menu isCartonMenu={isCartonMenu} setIsCartonMenu={setIsCartonMenu} catSelect={catSelect}
-                          setCatSelect={setCatSelect}/>
+                          setCatSelect={setCatSelect} articles={articles} setArticles={setArticles}/>
                 </nav>
                 <main className="main">
                     <Route exact path="/">
-                        <Content isCartonMenu={isCartonMenu} catSelect={catSelect}/>
+                        <Content isCartonMenu={isCartonMenu} catSelect={catSelect} articles={articles}
+                                 setArticles={setArticles}/>
                     </Route>
                     <Route path="/DetailsArticle">
                         <DetailsArticle/>

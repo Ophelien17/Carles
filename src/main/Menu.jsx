@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../scss/menu.scss';
-
+import network from '../networkParam';
+import axios from "axios";
 
 function Menu(props) {
+    const articles = props.articles;
     const [displayOpt, setDisplayOpt] = useState('none');
+
+    const [searchedArray, setSearchedArray] = useState(props.articles);
+    const [searchString, setSearchString] = useState("");
 
     const openMenu = () => {
         if (displayOpt === 'none')
@@ -12,10 +17,31 @@ function Menu(props) {
             setDisplayOpt('none');
     };
 
-
     const handleChange = (evt) => {
         props.setIsCartonMenu(evt.target.checked);
     };
+
+    useEffect(() => {
+        if (searchString.length === 0) {
+            axios.get(network.url + 'articles')
+                .then((res) => {
+                    props.setArticles(res.data);
+                }).catch((err) => {
+                console.log("ERR : ", err);
+            })
+
+        } else {
+            const searchedObjects = [];
+            articles.forEach((singleHeroObject, index) => {
+                if (singleHeroObject.articleName.toLowerCase().includes(searchString.toLowerCase())) {
+                    searchedObjects.push(singleHeroObject);
+
+                }
+            });
+            setSearchedArray(searchedObjects);
+            props.setArticles(searchedObjects);
+        }
+    }, [searchString]);
 
     return (
         <div className={'menu'}>
@@ -27,7 +53,10 @@ function Menu(props) {
 
             <nav>
                 <div className={'search'}>
-                    <input type={'text'} placeholder={'Rechercher'} className={'inputSearch'}/>
+                    <input type={'text'} placeholder={'Rechercher'} className={'inputSearch'}
+                           value={searchString}
+                           onChange={(e) => setSearchString(e.target.value)}
+                    />
                     <button onClick={openMenu} className={'settingsBtn'}><img src="/icons/settings.svg" alt="réglage"/>
                     </button>
                 </div>
