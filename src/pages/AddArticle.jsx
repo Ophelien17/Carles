@@ -22,8 +22,8 @@ function AddArticle(props) {
         axios.post(network.url + 'addArticle', {
             articleName: varForm.articleName.value,
             description: varForm.description.value,
-            price: varForm.price.value,
-            quantity: varForm.quantity.value,
+            price: parseInt(varForm.price.value),
+            quantity: parseInt(varForm.quantity.value),
             link: varForm.link.value,
             cat: evt.target.elements.cat.value,
             section: varForm.sections.value.split(', '),

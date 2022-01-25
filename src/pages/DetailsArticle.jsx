@@ -30,6 +30,11 @@ function Tuile(props) {
         window.location.reload();
     };
 
+    const modifyQte = (signe) => {
+        axios.put(network.url + 'modifyQte', {data: {id: idArticle, qte: signe}});
+        window.location.reload();
+    };
+
     return (
         <section className={'detailsArticle'}>
             {article !== null ?
@@ -68,7 +73,15 @@ function Tuile(props) {
                                 </div>
                                 <div className="container2">
                                     <div className={'quantity'}>
-                                        - <div>{detail.quantity}</div> +
+                                        <div className={'btn'} onClick={() => {
+                                            modifyQte('-')
+                                        }}>-
+                                        </div>
+                                        <div className={'num'}>{detail.quantity}</div>
+                                        <div className={'btn'} onClick={() => {
+                                            modifyQte('+')
+                                        }}>+
+                                        </div>
                                     </div>
 
                                     <div className="isCarton">
