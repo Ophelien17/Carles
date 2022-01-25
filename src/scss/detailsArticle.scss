@@ -1,46 +1,120 @@
-.containerImg {
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-}
+$extra-small: 0px;
+$small: 600px;
+$medium: 900px;
+$large: 1250px;
+$extra-large: 1536px;
 
-.under {
-  position: absolute;
-  bottom: 0;
+$cartonColor: #BA9B8F;
+$defaultColor: #FFF;
 
-  .categories {
+//en dessous de 900px
+@media (max-width: $medium) {
+  .containerImg {
     display: flex;
     justify-content: center;
-    margin: 0 20px;
 
-    .section {
-      border-radius: 15px;
-      padding: 10px;
-      margin: 10px;
-      background-color: #FFF;
+    min-height: 150px;
+  }
+  .under {
 
-      .logoSection {
-
+    .categories {
+      .section {
+        margin: 10px;
       }
+    }
 
-      h5 {
-        margin: 0;
-        text-align: center;
-        text-transform: uppercase;
+    .details {
+
+      .container1 {
+        justify-content: flex-end;
+
+        .articleLink {
+          display: none;
+        }
       }
-
     }
   }
 
+
+}
+
+//au dessus de 900px
+@media (min-width: $medium) {
+  .detailsArticle {
+    display: flex;
+
+    .under {
+      margin: 5% 5%;
+
+      .section {
+        margin: 10px 20px;
+      }
+    }
+
+    .details {
+      margin: 5% 5%;
+    }
+  }
   .details {
 
-    background-color: #FFF;
+    .container1 {
+      .articleLink {
+      }
+    }
+  }
+
+
+}
+
+
+.containerImg {
+  margin: 20px;
+
+  img {
+    max-width: 100%;
+    max-height: 500px;
+  }
+}
+
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 20px;
+
+  .section {
+    min-width: 70px;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+
+    .logoSection {
+
+    }
+
+    h5 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+  }
+}
+
+.under {
+  .details {
+
     border-radius: 20px 20px 0 0;
     padding: 15px;
 
     .titleArticle {
       margin-bottom: 0;
       font-size: 1.5em;
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
     }
 
     .desc {
@@ -70,19 +144,44 @@
 
       .quantity {
         display: flex;
+        padding: 0 5px;
+        border: .5px solid black;
+        border-radius: 15px;
 
-        div {
+        .btn {
+          margin: 0 5px;
+          text-align: center;
+        }
+
+        .num {
           margin: 0 5px;
           text-align: center;
           min-width: 24px;
-          border: .5px solid black;
-          border-radius: 50%;
         }
       }
 
-      .trash {
-        height: 20px;
+      .isCarton {
+        label {
+          color: #707070;
+        }
       }
+
+      .btnTrash {
+        border: none;
+
+        .trash {
+          height: 20px;
+        }
+      }
+
     }
   }
+}
+
+.carton {
+  background-color: $cartonColor;
+}
+
+.noCarton {
+  background-color: $defaultColor;
 }

@@ -1,0 +1,34 @@
+$extra-small: 0px;
+$small: 600px;
+$medium: 900px;
+$large: 1250px;
+$extra-large: 1536px;
+
+@media (max-width: $medium) {
+
+
+}
+
+@media (min-width: $medium) {
+  .all {
+
+    .menu {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #FFF;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      margin-left: 250px;
+      padding: 0px 10px;
+    }
+  }
+}
