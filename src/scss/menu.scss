@@ -93,9 +93,16 @@ nav {
     ul:hover > li:not(:hover) {
       opacity: 0.5;
     }
+
     ul {
       list-style: none;
       padding: 0px;
+
+      li {
+        padding: 5px 0;
+        border-top: .1px solid #707070;
+      }
+
     }
   }
 

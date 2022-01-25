@@ -9,18 +9,20 @@ import DetailsArticle from "../pages/DetailsArticle";
 import AddArticle from "../pages/AddArticle";
 
 function Backbone() {
-    const [isCartonMenu, setIsCartonMenu] = useState(false);
+    const [isCartonMenu, setIsCartonMenu] = useState(null);
+    const [catSelect, setCatSelect] = useState(null);
 
 
     return (
         <BrowserRouter>
             <div className={'all'}>
                 <nav className="menu">
-                    <Menu isCartonMenu={isCartonMenu} setIsCartonMenu={setIsCartonMenu}/>
+                    <Menu isCartonMenu={isCartonMenu} setIsCartonMenu={setIsCartonMenu} catSelect={catSelect}
+                          setCatSelect={setCatSelect}/>
                 </nav>
                 <main className="main">
                     <Route exact path="/">
-                        <Content isCartonMenu={isCartonMenu}/>
+                        <Content isCartonMenu={isCartonMenu} catSelect={catSelect}/>
                     </Route>
                     <Route path="/DetailsArticle">
                         <DetailsArticle/>
