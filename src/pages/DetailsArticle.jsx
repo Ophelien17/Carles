@@ -46,7 +46,6 @@ function Tuile(props) {
 
                         <div className="under">
                             <div className="categories">
-                                {console.log(detail.section)}
                                 {
                                     detail.section !== null ?
                                         detail.section.map((section) => (
