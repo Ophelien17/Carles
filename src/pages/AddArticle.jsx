@@ -9,17 +9,16 @@ function AddArticle(props) {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const varForm = evt.target.elements;
+        const formData = new FormData();
+        formData.append("imgArticle", evt.target['imgArticle'].files[0])
 
-        let formData = new FormData();
-        formData.append("image", varForm.imgArticle.files[0]);
-
-        axios.post(network.url + 'stats', formData, {
+        axios.post(network.url + 'article/image', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         });
 
-        axios.post(network.url + 'addArticle', {
+        axios.post(network.url + 'article/add', {
             articleName: varForm.articleName.value,
             description: varForm.description.value,
             price: parseInt(varForm.price.value),
@@ -73,7 +72,8 @@ function AddArticle(props) {
                     <label htmlFor="dining_room">Salle à manger</label><br/>
                 </section>
 
-                <input type={'text'} placeholder={'section1, section2, ...'} id={'sections'} className={'inputAdd'}/>
+                <input type={'text'} placeholder={'section1, section2, ...'} id={'sections'}
+                       className={'inputAdd'}/>
                 <section className="carton">
                     <input type={'checkbox'} id={'carton'} name={'carton'} className={'inputCarton'}/>
                     <label htmlFor="carton" className={'labelCarton'}>Carton</label>

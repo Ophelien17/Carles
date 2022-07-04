@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../scss/menu.scss';
 import network from '../networkParam';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function Menu(props) {
     const articles = props.articles;
@@ -45,11 +46,12 @@ function Menu(props) {
 
     return (
         <div className={'menu'}>
-            <header onClick={() => window.location.href = '/'}>
-                <h1 className={'titleApp'}>Carles</h1>
-                <img src={'/icons/logo.png'} alt={'logo'} className={'logo'}/>
-            </header>
-
+            <Link to={'/'} className={'linkToRedirect'}>
+                <header>
+                    <h1 className={'titleApp'}>Carles</h1>
+                    <img src={'/icons/logo.png'} alt={'logo'} className={'logo'}/>
+                </header>
+            </Link>
 
             <nav>
                 <div className={'search'}>
@@ -139,7 +141,7 @@ function Menu(props) {
                             <input type={'checkbox'} id={'carton'} name={'carton'} onChange={handleChange}/>
                             <label htmlFor="carton">Carton</label>
                         </li>
-                        <li onClick={() => window.location.href = '/AddArticle'}>Ajouter article</li>
+                        <Link to={'/AddArticle'} className={'linkToRedirect'}>Ajouter article</Link>
                     </ul>
                 </section>
 

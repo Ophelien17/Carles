@@ -26,7 +26,7 @@ function Backbone() {
                         <Content isCartonMenu={isCartonMenu} catSelect={catSelect} articles={articles}
                                  setArticles={setArticles}/>
                     </Route>
-                    <Route path="/DetailsArticle">
+                    <Route path="/DetailsArticle/:id">
                         <DetailsArticle/>
                     </Route>
                     <Route path="/AddArticle">
