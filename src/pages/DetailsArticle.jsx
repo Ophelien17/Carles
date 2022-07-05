@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router";
+import {useHistory, useParams} from "react-router";
 import axios from "axios";
 import network from '../networkParam';
 import '../scss/detailsArticle.scss'
@@ -7,7 +7,7 @@ import '../scss/detailsArticle.scss'
 
 function Tuile() {
     const [article, setArticle] = useState();
-
+    const history = useHistory()
     const {id} = useParams()
 
     useEffect(() => {
