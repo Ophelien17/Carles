@@ -7,6 +7,7 @@ import '../scss/detailsArticle.scss'
 
 function Tuile() {
     const [article, setArticle] = useState();
+    const [refresh, setRefresh] = useState(true);
     const history = useHistory()
     const {id} = useParams()
 
@@ -14,25 +15,26 @@ function Tuile() {
         axios.get(network.url + 'article/' + id)
             .then(function (response) {
                 setArticle(response.data);
+                setRefresh(false)
             })
             .catch(function (error) {
                 console.log(error);
             })
-    }, [article !== null]);
+    }, [article !== null, refresh === true]);
 
     const deleteArticle = () => {
         axios.delete(network.url + 'article/delete/' + id);
-        window.location.href = "/";
+        // window.location.href = "/";
     };
 
     const handleChange = (evt) => {
         axios.put(network.url + 'article/addToBox/' + id, {carton: evt.target.checked});
-        window.location.reload();
+        setRefresh(true)
     };
 
     const modifyQte = (signe) => {
         axios.put(network.url + 'article/modifyQte/' + id, {qte: signe});
-        window.location.reload();
+        setRefresh(true)
     };
 
     return (
